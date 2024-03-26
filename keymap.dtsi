@@ -1,10 +1,12 @@
 // NOTE: Use the many #define settings below to customize this keymap!
-#define OPERATING_SYSTEM 'L' // choose 'L'inux, 'M'acOS, or 'W'indows
-#define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
-#define ENFORCE_BILATERAL    // cancels single-handed home row mod+tap
-#define WORLD_USE_COMPOSE    // use native Compose in place of Unicode
-// TIP: Add more setting overrides here instead of editing them below.
+#define DIFFICULTY_LEVEL  4 // 1:easy --> 5:hard (see levels below)
+#define PINKY_HOLDING_TIME 1000
 
+#define ENFORCE_BILATERAL   // cancels single-handed home row mod+tap
+#define ENABLE_KEY_REPEAT // permits "tap then hold" key repetition
+#define OPERATING_SYSTEM 'W' // windows
+#define USE_NUMPAD_KEYCODES
+#define WORLD_USE_COMPOSE   // use native Compose in place of Unicode
 //////////////////////////////////////////////////////////////////////////////
 //
 // Sunaku's Keymap v36 -- "Glorious Engrammer"
