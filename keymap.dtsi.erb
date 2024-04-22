@@ -254,6 +254,13 @@ combos {
         layers = <<%= (0...ALPHA_LAYERS_COUNT).to_a.join(" ") %>>;
     };
     #endif
+
+    combo_ctrl_tab_switcher {
+        timeout-ms = <COMBO_FIRING_DECAY>;
+        key-positions = <POS_LH_T4 POS_LH_T5>;
+        bindings = <&mod_tab_chord LCTL LAYER_Cursor>;
+        layers = <<%= (0...ALPHA_LAYERS_COUNT).to_a.join(" ") %>>;
+    };
 };
 
 behaviors {
@@ -957,6 +964,21 @@ behaviors {
     #define STICKY_1SHOT_DECAY 500
     #endif
 
+    //
+    // STICKY_HOLDING_TIME defines how long you need to hold (milliseconds)
+    // sticky one-shot keys in order to trigger their hold (not tap) action.
+    //
+    #ifndef STICKY_HOLDING_TIME
+    #define STICKY_HOLDING_TIME CHORD_HOLDING_TIME
+    #endif
+
+    sticky_key_modtap: sticky_key_modtap {
+        compatible = "zmk,behavior-hold-tap";
+        flavor = "tap-preferred";
+        tapping-term-ms = <STICKY_HOLDING_TIME>;
+        #binding-cells = <2>;
+        bindings = <&kp>, <&sticky_key_oneshot>;
+    };
     sticky_key_oneshot: sticky_key_oneshot_macro {
         compatible = "zmk,behavior-macro-one-param";
         wait-ms = <0>;
